@@ -1,8 +1,8 @@
-# LiftLog
+# TrainingTracker
 
 ## Overview
 
-LiftLog is a full-stack fitness tracking application built to help users:
+Training Tracker is a full-stack fitness tracking application built to help users:
 
 - Track workouts
 - Track body weight
