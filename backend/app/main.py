@@ -37,10 +37,10 @@ app.include_router(exercises.router)
 # Root endpoint for verification that backend is running
 @app.get("/")
 def root():
-    return{
+    return {
         "message": "Welcome",
         "status": "Backend running successfully",
         "version": "0.1.0",
         "developer": "Cameron Davids",
-        "exercises": exercises.get_exercises(),
+        "exercises": "",
     }

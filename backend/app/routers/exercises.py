@@ -1,14 +1,14 @@
 from fastapi import APIRouter
 
 router = APIRouter(
-    prefix="/exercises",
+    prefix="/api/exercises",
     tags=["Exercises"],
 
 )
 
 @router.get("/")
 def get_exercises():
-    return[[
+    return[
         {
             "id": 1,
             "name": "Bench Press",
@@ -24,4 +24,4 @@ def get_exercises():
             "name": "Lat Pulldown",
             "muscle_group": "Back",
         },
-    ]]
+    ]
