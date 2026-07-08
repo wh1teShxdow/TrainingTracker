@@ -5,56 +5,49 @@ interface Exercise {
   id: number;
   name: string;
   muscle_group: string;
+  description: string;
 }
 function App() {
   const [exercises, setExercises] = useState<Exercise[]>([]);
-  /*const [serverData, setServerData] = useState({
-    message: "",
-    status: "",
-    version:"",
-    developer: "",
 
-  }
-)*/
 useEffect(() => {
-  async function fetchServerData() {
+  async function fetchExercises() {
     try {
-      const response = await api.get("/api/exercises/");
-      
-      console.log(response);
-      console.log(response.data);
 
-      ///setServerData(response.data);
+      const response = await api.get("/api/exercises/");
+
       setExercises(response.data);
+
     } catch (error) {
-      console.error("Failed to contact backend:", error);
+      console.error("Failed to fetch exercises: ", error);
     }
   }
 
-  fetchServerData();
+  fetchExercises();
+
 }, []);
   return (
     
       <section id="center">
-        <div>
-          {/* <h1>{serverData.message}</h1> */}
-          {/* <p>{serverData.status}</p> */}
-          {/* <p>Version: {serverData.version}</p> */}
-          {/* <p>Developer: {serverData.developer}</p> */}
-          {/* <p>Exercises: {serverData.exercises}</p> */}
-          <h1>Exercises</h1>
-          {exercises.map((exercise) => (
-            <div key={exercise.id}>
-              <h2>{exercise.name}</h2>
-              <p>Muscle Group: {exercise.muscle_group}</p>
-          
-        </div>
-        ))}
-        </div>
+        
+        <h1>Training Tracker Exercises</h1>
+
+        {exercises.map((exercise) => (
+
+          <div key={exercise.id}>
+
+            <h2>{exercise.name}</h2>
+
+            <p>Muscle Group:{" "} {exercise.muscle_group}</p>
+
+            <p>{exercise.description}</p>
+          </div>
+        ))} 
+        
       </section>
 
   
-  )
+  );
 }
 
 export default App

@@ -11,13 +11,15 @@ class Exercise(Base):
     __tablename__ = "exercises"
 
     # Primary Key
-    id: Mapped[str] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(
+        primary_key=True
+    )
 
     #Display name
     name: Mapped[str] =mapped_column(
         String(120),
         unique=True,
-        nullable=False
+        nullable=False,
     )
 
     # Example:
@@ -26,11 +28,11 @@ class Exercise(Base):
     # Legs
     muscle_group: Mapped[str] = mapped_column(
         String(50),
-        nullable=False
+        nullable=False,
     )
 
     # Longer description.
     description: Mapped[str] = mapped_column(
         String(500),
-        default=""
+        default="",
     )
